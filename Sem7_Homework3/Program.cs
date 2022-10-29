@@ -36,17 +36,17 @@ int []  SumStroki (int[,] array)
 }
 int PoiskMin (int[] array)
 {
-  int result = 1;
+  int min = array[0];
+  int index = 0;
   for (int i = 0; i < array.Length; i++)
+  {
+    if (min > array[i])
     {
-      int min = array[0];
-      if (array[i]<min)
-      {
-      min = array[i];
-      result = i;
-      }  
+        min = array[i];
+        index = i;
     }
-  return result;
+  }
+  return index;
 }
 Console.Write("Введите число строк: ");
 int m = int.Parse(Console.ReadLine() ?? "0");
@@ -66,7 +66,7 @@ for (int i = 0; i < newarray.Length; i++)
 {
   Console.Write($"[{newarray[i]}] ");
 }
-int stroka = PoiskMin (newarray) + 1;
+int stroka = PoiskMin (newarray)+1;
 
 Console.WriteLine();
 Console.Write($"Наименьшая сумма элементов находится в {stroka} строке ");  
